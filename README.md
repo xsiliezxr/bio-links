@@ -14,3 +14,5 @@ Links de bio con React + Vite + Tailwind CSS v4 + GSAP.
 - Netlify: sube `pnpm-lock.yaml` y carga las variables en Site settings → Environment variables.
 
 Tailwind v4 se integra con el plugin oficial de Vite en `vite.config.js`; no requiere `tailwind.config.js` ni una cadena PostCSS adicional.
+
+Los enlaces de Instagram, LinkedIn, X y Facebook intentan abrir su aplicación nativa en teléfonos compatibles y vuelven a la URL web si la aplicación no está instalada. En desktop siempre usan la URL web. La decisión final también depende de las restricciones del navegador interno de cada red social.

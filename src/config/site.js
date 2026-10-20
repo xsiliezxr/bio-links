@@ -16,7 +16,7 @@ const DEFS = [
   { id: 'portfolio', label: 'Portafolio', tier: 'list', featured: true },
   { id: 'whatsapp', label: 'WhatsApp', tier: 'list', note: 'Escríbeme directo' },
   { id: 'githubPersonal', label: 'GitHub personal', tier: 'list' },
-  { id: 'githubWork', label: 'GitHub trabajo', tier: 'list' },
+  { id: 'githubWork', label: 'GitHub Kinal', tier: 'list' },
   { id: 'linkedin', label: 'LinkedIn', tier: 'list' },
   { id: 'credly', label: 'Credly', tier: 'list', note: 'Certificaciones y badges' },
   { id: 'microsoftLearn', label: 'Microsoft Learn', tier: 'list', note: 'Perfil de aprendizaje' },
@@ -45,5 +45,5 @@ export const links = [...DEFS.map((d) => ({ ...d, href: url(ENV.link[d.id]) })),
 
 export const emails = [
   { id: 'personal', label: 'Personal', addr: text(ENV.email.personal) },
-  { id: 'work', label: 'Trabajo', addr: text(ENV.email.work) },
+  { id: 'work', label: 'Proyectos / Negocio', addr: text(ENV.email.work), featured: true },
 ].filter((m) => m.addr)
