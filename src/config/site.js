@@ -18,6 +18,8 @@ const DEFS = [
   { id: 'githubPersonal', label: 'GitHub personal', tier: 'list' },
   { id: 'githubWork', label: 'GitHub trabajo', tier: 'list' },
   { id: 'linkedin', label: 'LinkedIn', tier: 'list' },
+  { id: 'credly', label: 'Credly', tier: 'list', note: 'Certificaciones y badges' },
+  { id: 'microsoftLearn', label: 'Microsoft Learn', tier: 'list', note: 'Perfil de aprendizaje' },
   { id: 'instagram', label: 'Instagram', tier: 'icon' },
   { id: 'facebook', label: 'Facebook', tier: 'icon' },
   { id: 'x', label: 'X', tier: 'icon' },
@@ -26,7 +28,18 @@ const DEFS = [
   { id: 'cv', label: 'Descargar CV', tier: 'icon' },
 ]
 
-export const links = DEFS.map((d) => ({ ...d, href: url(ENV.link[d.id]) }))
+const customLink = ENV.custom.label && ENV.custom.url
+  ? [{
+      id: 'custom',
+      label: text(ENV.custom.label),
+      tier: 'list',
+      icon: text(ENV.custom.icon),
+      note: text(ENV.custom.note) || undefined,
+      href: url(ENV.custom.url),
+    }]
+  : []
+
+export const links = [...DEFS.map((d) => ({ ...d, href: url(ENV.link[d.id]) })), ...customLink]
   .filter((d) => d.href)
   .map((d) => ({ ...d, hint: d.note ?? hint(d.href) }))
 

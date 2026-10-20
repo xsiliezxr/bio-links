@@ -20,8 +20,10 @@ export default function App() {
       <main className="page">
         <div className="sheet">
           <Profile profile={profile} />
-          <Links links={links} />
-          <Emails emails={emails} onCopy={copy} />
+          <section className="content-column">
+            <Links links={links} />
+            <Emails emails={emails} onCopy={copy} />
+          </section>
           <footer className="foot" data-reveal>© 2026 Angel Siliezar. Todos los derechos reservados.</footer>
         </div>
       </main>

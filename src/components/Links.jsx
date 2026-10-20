@@ -1,9 +1,9 @@
-import { ICONS } from '../lib/icons'
+import { CUSTOM_ICONS, ICONS } from '../lib/icons'
 
 const ext = (href) => (/^https?:/i.test(href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})
 
 function LinkButton({ link }) {
-  const Icon = ICONS[link.id]
+  const Icon = ICONS[link.id] ?? CUSTOM_ICONS[link.icon] ?? CUSTOM_ICONS.link
   return (
     <a className={'btn' + (link.featured ? ' is-featured' : '')} href={link.href} data-reveal {...ext(link.href)}>
       <span className="btn-icon"><Icon /></span>
@@ -28,7 +28,7 @@ export default function Links({ links }) {
   const list = links.filter((l) => l.tier === 'list')
   const tiles = links.filter((l) => l.tier === 'icon')
   return (
-    <>
+    <div className="links-panel">
       {list.length > 0 && (
         <nav className="list" aria-label="Enlaces principales">
           {list.map((l) => <LinkButton key={l.id} link={l} />)}
@@ -39,6 +39,6 @@ export default function Links({ links }) {
           {tiles.map((l) => <IconTile key={l.id} link={l} />)}
         </nav>
       )}
-    </>
+    </div>
   )
 }
