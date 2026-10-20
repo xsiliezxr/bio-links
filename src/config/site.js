@@ -44,6 +44,6 @@ export const links = [...DEFS.map((d) => ({ ...d, href: url(ENV.link[d.id]) })),
   .map((d) => ({ ...d, hint: d.note ?? hint(d.href) }))
 
 export const emails = [
-  { id: 'personal', label: 'Personal', addr: text(ENV.email.personal) },
-  { id: 'work', label: 'Proyectos / Negocio', addr: text(ENV.email.work), featured: true },
+   { id: 'work', label: 'Proyectos / Negocio', addr: text(ENV.email.work), featured: true },
+  { id: 'personal', label: 'Personal', addr: text(ENV.email.personal) }
 ].filter((m) => m.addr)
